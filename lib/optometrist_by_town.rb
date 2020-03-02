@@ -1,6 +1,8 @@
-require "optometrist_by_town/version"
+require_relative "optometrist_by_town/version"
+require_relative "./cli.rb"
 
-module OptometristByTown
-  class Error < StandardError; end
-  # Your code goes here...
-end
+ module OptometristByTown
+   def call
+     puts "Hello"
+   end
+ end
