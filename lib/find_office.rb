@@ -14,22 +14,35 @@ class OptometristByTown::FindOffice
   end
   
   #doc.css("#main div.row")[0].css("a").map{|x| x['href]}[0]    "#{x.attr('href')}"
+  
+  #doc.css("div.container-fluid")[0].css(".col-md-4.col-xs-4.text-right")[0].text
   def find_office
     @doc.css("#main div.row").each do |elements|
       elements.css("a").each do |link|
         if link.attr('href').to_s.include?(@town)
           @office_url = link.attr('href').to_s
           @office_detail_page = Nokogiri::HTML(open(@office_url))
-          @office = OptometristByTown.new
-          @office.town = @office_detail_page.css("precise path to town").text
-          @office.name = @office_detail_page.css("precise path to name of office").text
-          @office.number = @office_detail_page.css("precise path to office number").text
-          @office.address = @office_detail_page.css("precise path to address").text
-          if !@office_detail_page.css("precise path to webpage").map { |link| link['href'] } == false 
-            @office.webpage = @office_detail_page.css("precise path to webpage").map { |link| link['href'] }
+          @office_detail_page.css("div.container-fluid div.row").each do |x|
+            name = x.css(".col-md-3.hidden-xs.hidden-sm.text-left a")[1].text
+            town = @town 
+            address = x.css(".col-md-4.col-xs.text-right").text
+            
+            # FOR THE NUMBER WE HAVE TO GO TO ANOTHER PAGE...
+            
+            number = x.css( )
+            if !css.(  ) == false
+              webpage = css.(   ).attr('href')
+            @office = OptometristByTown.new
+            @office.town = town
+            @office.name = name
+            @office.number = number
+            @office.address = address
+            if !x.css("precise path to webpage").attr('href').to_s == false 
+            @office.webpage = webpage
+            end
+            @office.save
+            @offices_in_town << @office
           end
-          @office.save
-          @offices_in_town << @office
         else 
         puts "Optometrist Office not found in that town"
         puts "Please choose another town close to the desired location"
