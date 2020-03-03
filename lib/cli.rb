@@ -1,6 +1,5 @@
 require_relative "./optometrist_by_town.rb"
-require_relative "./find_office.rb"
- 
+
 
 class OptometristByTown::CLI
   
