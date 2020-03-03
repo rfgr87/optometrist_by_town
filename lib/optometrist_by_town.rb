@@ -1,15 +1,13 @@
+
 require_relative "optometrist_by_town/version"
 require_relative "./cli.rb"
-
+require_relative "./find_office.rb"
+require 'pry'
  module OptometristByTown
-   attr_accessor :town, :name, :number
+   attr_accessor :town, :name, :number, :address, :webpage
    @@all = []
    
-   def initialize(town=nil, name=nil, number=nil, webpage=nil)
-     @town = town
-     @name = name 
-     @number = number
-     @webpage = webpage
+   def initialize
    end
    
    def self.save
@@ -20,3 +18,8 @@ require_relative "./cli.rb"
      @@all
    end
  end
+
+
+
+
+

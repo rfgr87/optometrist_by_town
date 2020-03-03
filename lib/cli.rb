@@ -6,11 +6,11 @@ class OptometristByTown::CLI
   
   def call 
     puts "Hello. Welcome to the Optometrist By Town finder"
-    puts "Please select a Puertorican town were you would like to locate an optometrist office"
+    puts "Please type a Puertorican town were you would like to locate an optometrist office"
     puts "When finished type exit to end the program"
     @input = gets.chomp
     while @input != "exit"
-      @find_office = FindOffice.new(@input)
+      @find_office = OptometristByTown::FindOffice.new(@input)
       @office = @find_office.find_office #array of one to more offices, if none then zero length
       @n_offices = @find_office.amount_of_offices_in_town
       if @n_offices > 0 
@@ -30,9 +30,17 @@ class OptometristByTown::CLI
         end
       else 
         puts "No optometrist offices were found in that town."
-        puts "Please select another nearest town to your desired location"
+        puts "Please select another nearest town to your desired location."
       end
       @input = gets.chomp
     end
   end
 end
+
+
+
+
+
+
+
+
