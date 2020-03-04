@@ -13,19 +13,36 @@ class OptometristByTown::CLI
       @office = @find_office.find_office #array of one to more offices, if none then zero length
       @n_offices = @find_office.amount_of_offices_in_town
       if @n_offices > 0 
-        puts "There is #{@n_offices} offices in #{@find_office.town}."
-        i = 0 
-        while i < @n_offices
-          puts "#{i+1}."
-          puts "  #{@office[i].town}"
-          puts "  #{@office[i].name}"
-          puts "  #{@office[i].address}"
-          puts "  #{@office[i].number}"
-          if !@office[i].webpage == false 
-            puts "  #{@office[i].webpage}"
-          end 
-          puts ""
-          i += 1
+        if @n_offices == 1
+          puts "There is #{@n_offices} offices in #{@find_office.town}."
+          i = 0 
+          while i < @n_offices
+            puts "#{i+1}."
+            puts "  #{@office[i].town}"
+            puts "  #{@office[i].name}"
+            puts "  #{@office[i].address}"
+            puts "  #{@office[i].number}"
+            if !@office[i].webpage == false 
+              puts "  #{@office[i].webpage}"
+            end 
+            puts ""
+            i += 1
+          end
+        else
+          puts "There are #{@n_offices} offices in #{@find_office.town}."
+          i = 0 
+          while i < @n_offices
+            puts "#{i+1}."
+            puts "  #{@office[i].town}"
+            puts "  #{@office[i].name}"
+            puts "  #{@office[i].address}"
+            puts "  #{@office[i].number}"
+            if !@office[i].webpage == false 
+              puts "  #{@office[i].webpage}"
+            end 
+            puts ""
+            i += 1
+          end
         end
       else 
         puts "No optometrist offices were found in that town."
