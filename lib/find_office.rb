@@ -17,6 +17,7 @@ class OptometristByTown::FindOffice
   
   #doc.css("div.container-fluid")[0].css(".col-md-4.col-xs-4.text-right")[0].text
   def find_office
+    binding.pry
     @doc.css("#main div.row").each do |elements|
       elements.css("a").each do |link|
         if link.attr('href').to_s.include?(@town)
@@ -32,6 +33,7 @@ class OptometristByTown::FindOffice
             number = x.css( )
             if !css.(  ) == false
               webpage = css.(   ).attr('href')
+            end
             @office = OptometristByTown.new
             @office.town = town
             @office.name = name
