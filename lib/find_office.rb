@@ -37,7 +37,7 @@ class OptometristByTown::FindOffice
               @town = @town.split("-").map(&:capitalize).join(' ')
               town = @town
             else
-              town = @town
+              town = @town.capitalize
             end
             
             # ADDRESS
