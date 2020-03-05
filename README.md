@@ -6,29 +6,13 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
-Add this line to your application's Gemfile:
+In order to run this program type in the ruby application: git clone "git@github.com:rfgr87/optometrist_by_town.git" which is the SHH link to clone the project, then type: ruby bin/optometrist_cli and follow the instructions of the application to use the CLI program. To test it you could type in for a town San Juan, or Caguas and that should get you the optometrist offices in those towns.
 
-```ruby
-gem 'optometrist_by_town'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install optometrist_by_town
 
 ## Usage
 
-To use this program make sure you have installed Nokogiri and Open-Uri. If runned in the learn IDE just require "nokogiri" and require "open-uri" in the top  will sufice. Type ruby bin/optometrist_cli to run the program.
+To use this program make sure you have installed Nokogiri and Open-Uri. If runned in the learn IDE just require "nokogiri" and require "open-uri". If its complaining then type : gem install pry and: gem instal open-uri. Type ruby bin/optometrist_cli to run the program.
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
