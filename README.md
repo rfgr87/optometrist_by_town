@@ -1,6 +1,6 @@
 # OptometristByTown
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/optometrist_by_town`. To experiment with that code, run `bin/console` for an interactive prompt.
+This ruby CLI progra is meant to get optometrist offices by town. The information that is given is the name of the office, the address and the town. The program scrapes from this webpage: https://www.opticaspr.com/pueblos_todos.php and dives in to each town link to get all the optometrist office.
 
 TODO: Delete this and the text above, and describe your gem
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use this program make sure you have installed Nokogiri and Open-Uri. If runned in the learn IDE just require "nokogiri" and require "open-uri" in the top  will sufice. Type ruby bin/optometrist_cli to run the program.
 
 ## Development
 

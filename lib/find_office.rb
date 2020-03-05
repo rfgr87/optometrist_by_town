@@ -2,7 +2,6 @@ require_relative "./optometrist_by_town.rb"
 
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
 
 class OptometristByTown::FindOffice
   attr_accessor :town
