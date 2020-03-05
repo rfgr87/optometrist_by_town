@@ -9,7 +9,13 @@ class OptometristByTown::FindOffice
 
   def initialize(town)
     @doc = Nokogiri::HTML(open("https://www.opticaspr.com/pueblos_todos.php"))
-    @town = town.downcase
+    if town.split.length > 1 
+      @town = town.split
+      @town = @town.join("-")
+      @town = @town.downcase
+    else 
+      @town = town.downcase
+    end
     @offices_in_town = []
   end
   
@@ -28,7 +34,12 @@ class OptometristByTown::FindOffice
                   
 
             #TOWN
-            town = @town.capitalize 
+            if @town.split("-").length > 1
+              @town = @town.split("-").map(&:capitalize).join(' ')
+              town = @town
+            else
+              town = @town
+            end
             
             # ADDRESS
             y = x.css("div.col-md-4.col-xs-4.text-right")
@@ -55,10 +66,10 @@ class OptometristByTown::FindOffice
     @offices_in_town
   end
   
-  def offices_in_town
-    self.find_office
-    @offices_in_town
-  end
+  # def offices_in_town
+  #   self.find_office
+  #   @offices_in_town
+  # end
   
   def amount_of_offices_in_town
     @offices_in_town.count

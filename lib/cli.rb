@@ -14,7 +14,7 @@ class OptometristByTown::CLI
       @n_offices = @find_office.amount_of_offices_in_town
       if @n_offices > 0 
         if @n_offices == 1
-          puts "There is #{@n_offices} offices in #{@find_office.town}."
+          puts "There is #{@n_offices} office in #{@find_office.town}."
           i = 0 
           while i < @n_offices
             puts "#{i+1}."
