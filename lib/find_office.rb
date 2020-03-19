@@ -2,21 +2,18 @@ require_relative "./optometrist_by_town.rb"
 
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
 
 class OptometristByTown::FindOffice
   attr_accessor :town
 
   def initialize(town)
+    OptometristByTown::Office.clear
     @doc = Nokogiri::HTML(open("https://www.opticaspr.com/pueblos_todos.php"))
     if town.split.length > 1 
-      @town = town.split
-      @town = @town.join("-")
-      @town = @town.downcase
-    else 
-      @town = town.downcase
+      town = town.split
+      town = town.join("-")
     end
-    @offices_in_town = []
+      @town = town.downcase
   end
   
   def find_office
@@ -53,22 +50,20 @@ class OptometristByTown::FindOffice
             # number_html = Nokogiri::HTML(open(number_link))
             # The number did not appear after having the rigth css command
             
-            @office = OptometristByTown::Office.new
-            @office.town = town
-            @office.name = name
-            @office.address = address
-            @office.save
-            @offices_in_town << @office
+            office = OptometristByTown::Office.new
+            office.town = town
+            office.name = name
+            office.address = address
+            office.save
           end
         end
       end 
     end
-    @offices_in_town
   end
   
-  def amount_of_offices_in_town
-    @offices_in_town.count
-  end
+  # def amount_of_offices_in_town
+  #   @offices_in_town.count
+  # end
 
 end
 

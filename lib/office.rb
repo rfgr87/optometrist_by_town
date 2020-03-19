@@ -3,23 +3,16 @@ class OptometristByTown::Office
    @@all = []
    
   def initialize
-    @offices_in_town = []
-  end
-   
-  def find_by_town(input)
-    @offices = OptometristByTown::FindOffice.new(input)
-    @offices_in_town = @offices.find_office
-    @offices_in_town
   end
   
-  def offices_in_town
-    @offices_in_town
-  end
-  
-  def office_count
-    @offices_in_town.length 
+  def self.office_count
+    @@all.size
   end
     
+  def self.clear
+    @@all = []
+  end
+  
   def save
     @@all << self
   end
