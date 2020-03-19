@@ -12,11 +12,11 @@ class OptometristByTown::Office
     @offices_in_town
   end
   
-  def self.offices_in_town
+  def offices_in_town
     @offices_in_town
   end
   
-  def self.office_count
+  def office_count
     @offices_in_town.length 
   end
     
